@@ -1,0 +1,20 @@
+#+TITLE: Human Intermediate Formats
+
+This repository documents file formats that can be considered human-editable intermediates. A "human intermediate format" can be describes as one that:
+
++ Be feasibly created directly by a human directly, or with simple =printf=-style commands.
++ Encode information without any loss of information in the imtermediate step.
++ Not be a direct serialization of a file format's internal structures.
+
+For inclusion on this list, the following questions are asked:
+
++ Does this file format allow for simple programs to interoperate with more complex programs?
++ Does this file format work to visualize diffs using git's =textconv= feature?
+
+** Formats
++ *[[https://github.com/markc/midicomp][midicomp]]* (=midi=, =mid=) Supports MIDI (SMF formats 0 and 1).
++ *[[http://netpbm.sourceforge.net/doc/#formats][Portable Anymap Format]]* (=pbm=, =pgm=, =ppm=, =pnm=) black & white, grayscale, and 8-bit color images. 16- and 32-bit colors as extensions.
+  + Note that Portable Arbitrary Map, also part of the Netpbm project, is /not/ a human intermediate format, as there is no "plain" representation.
+
+** Honorable Mentions
++ *[[http://qpdf.sourceforge.net/files/qpdf-manual.html#ref.qdf][QDF]]* represents a PDF file as a decompressed, destreamed, and pretty-printed file (while still being a valid PDF file). QDF makes it more feasible to edit a PDF file in a text editor, [[https://gist.github.com/terinjokes/d2e4b9492b9ca8a02fe3276b27825089][or distribute patches]]. However, it doesn't belong in the main list, as there's still some data encoded in raw binary.
